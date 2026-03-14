@@ -1,0 +1,5 @@
+flask
+requests
+schedule
+python-dateutil
+gitpython
