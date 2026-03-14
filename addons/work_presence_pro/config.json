@@ -8,8 +8,14 @@
   "boot": "auto",
   "panel_icon": "mdi:clock",
   "panel_title": "Work Presence",
+  "ingress": true,
+  "ingress_port": 8099,
+  "ports": {
+    "8099/tcp": 8099
+  }
+}
 
-  "options": {
+"options": {
     "pin": "",
     "latitude": 0,
     "longitude": 0,
@@ -29,3 +35,4 @@
     "schedule": "dict"
   }
 }
+  
