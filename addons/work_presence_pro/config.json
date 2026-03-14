@@ -12,10 +12,8 @@
   "ingress_port": 8099,
   "ports": {
     "8099/tcp": 8099
-  }
-}
-
-"options": {
+  },
+  "options": {
     "pin": "",
     "latitude": 0,
     "longitude": 0,
@@ -27,7 +25,6 @@
       "fri": {"login": "06:55", "logout": "15:02"}
     }
   },
-
   "schema": {
     "pin": "str",
     "latitude": "float",
@@ -35,4 +32,3 @@
     "schedule": "dict"
   }
 }
-  
