@@ -3,7 +3,6 @@
   "url": "https://github.com/corellonn/work-presence",
   "maintainer": "corellonn",
   "addons": [
-    "addons/work_presence_pro"
+    "work_presence_pro"
   ]
 }
-
