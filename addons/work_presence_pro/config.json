@@ -17,13 +17,6 @@
     "pin": "",
     "latitude": 0,
     "longitude": 0,
-    "schedule": {
-      "mon": {"login": "07:00", "logout": "15:00"},
-      "tue": {"login": "07:05", "logout": "15:05"},
-      "wed": {"login": "07:04", "logout": "15:04"},
-      "thu": {"login": "06:48", "logout": "14:48"},
-      "fri": {"login": "06:55", "logout": "15:02"}
-    }
   },
   "schema": {
     "pin": "str",
