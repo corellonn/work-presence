@@ -1,27 +1,19 @@
-{
   "name": "Work Presence Pro",
+  "version": "2.0",
   "slug": "work_presence_pro",
-  "version": "1.0.0",
-  "description": "Automatic work presence login/logout",
-  "arch": ["amd64","aarch64","armv7"],
+  "description": "Automatic work login/logout with smart scheduler",
   "startup": "services",
   "boot": "auto",
-  "panel_icon":"local/work_presence_pro/icons/work_presence.png",
-  "panel_title": "Work Presence",
-  "ingress": true,
-  "ingress_port": 8099,
-  "ports": {
-    "8099/tcp": 8099
-  },
+  "arch": ["armv7","aarch64","amd64"],
+  "host_network": true,
   "options": {
-    "pin": "",
-    "latitude": 0,
-    "longitude": 0,
+    "pin": "100578",
+    "latitude": 40.325031,
+    "longitude": 21.787019
   },
   "schema": {
     "pin": "str",
     "latitude": "float",
-    "longitude": "float",
-    "schedule": "dict"
+    "longitude": "float"
   }
 }
