@@ -1,0 +1,31 @@
+{
+  "name": "Work Presence Pro",
+  "slug": "work_presence_pro",
+  "version": "1.0.0",
+  "description": "Automatic work presence login/logout with scheduler and manual controls",
+  "arch": ["amd64", "armv7", "aarch64"],
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 8099,
+  "ports": {
+    "8099/tcp": 8099
+  },
+  "options": {
+    "pin": "100578",
+    "latitude": 40.325031,
+    "longitude": 21.787019,
+    "schedule": {
+      "mon": {"login": "07:00", "logout": "15:00"},
+      "tue": {"login": "07:05", "logout": "15:05"},
+      "wed": {"login": "07:04", "logout": "15:04"},
+      "thu": {"login": "06:48", "logout": "14:48"},
+      "fri": {"login": "06:55", "logout": "15:02"}
+    }
+  },
+  "schema": {
+    "pin": "str",
+    "latitude": "float",
+    "longitude": "float",
+    "schedule": "dict"
+  }
+}
