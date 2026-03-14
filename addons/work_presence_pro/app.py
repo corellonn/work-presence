@@ -1,10 +1,82 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template_string
 import threading, time
 from datetime import datetime
 from scheduler import next_event, run_scheduler
 from presence import send_presence
 from stats import log_event
 import json, os
+from presence import send_presence
+from stats import log_event
+from scheduler import next_event
+
+app = Flask(__name__)
+
+PIN = "100578"
+LAT = 40.325031
+LON = 21.787019
+
+status = "idle"
+
+# Panel route για Home Assistant sidebar
+@app.route("/")
+def index():
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Work Presence Pro</title>
+        <style>
+            body { font-family: Arial; padding: 20px; }
+            h2 { color: #2c3e50; }
+            .status { margin: 10px 0; font-weight: bold; }
+            button { margin: 5px; padding: 10px 15px; cursor: pointer; }
+        </style>
+    </head>
+    <body>
+        <h2>Work Presence Pro</h2>
+        <div class="status">STATUS: <span id="status">loading...</span></div>
+        <div>Next Login: <span id="next_login">--:--</span></div>
+        <div>Next Logout: <span id="next_logout">--:--</span></div>
+        <div>
+            <button onclick="manual('login')">Manual IN</button>
+            <button onclick="manual('logout')">Manual OUT</button>
+        </div>
+        <div>
+            <h3>Work Statistics</h3>
+            <div id="stats">Loading...</div>
+        </div>
+        <script>
+            async function fetchStatus() {
+                try {
+                    let res = await fetch("/status");
+                    let data = await res.json();
+                    document.getElementById("status").innerText = data.status;
+                    document.getElementById("next_login").innerText = data.next_login;
+                    document.getElementById("next_logout").innerText = data.next_logout;
+                    document.getElementById("stats").innerText = data.work_hours || "No data";
+                } catch(e) {
+                    console.log(e);
+                }
+            }
+
+            async function manual(action){
+                try {
+                    await fetch("/" + action);
+                    fetchStatus();
+                } catch(e){
+                    console.log(e);
+                }
+            }
+
+            setInterval(fetchStatus, 3000);
+            fetchStatus();
+        </script>
+    </body>
+    </html>
+    """
+    return render_template_string(html)
+
+
 
 # Load options
 OPTIONS_FILE = "/data/options.json"
@@ -98,3 +170,4 @@ threading.Thread(target=run_scheduler, daemon=True).start()
 # -----------------------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8099)
+
