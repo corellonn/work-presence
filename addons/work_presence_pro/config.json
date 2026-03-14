@@ -6,7 +6,7 @@
   "arch": ["amd64","aarch64","armv7"],
   "startup": "services",
   "boot": "auto",
-  "panel_icon":"local/work_presence/icons/work_presence.png",
+  "panel_icon":"local/work_presence_pro/icons/work_presence.png",
   "panel_title": "Work Presence",
   "ingress": true,
   "ingress_port": 8099,
