@@ -68,7 +68,7 @@ def index():
                 }
             }
 
-            setInterval(fetchStatus, 3000);
+            setInterval(fetchStatus, 1000);
             fetchStatus();
         </script>
     </body>
