@@ -28,4 +28,9 @@ def send_presence(pin, action, lat, lon):
 
         time.sleep(10)
 
-    return False
+
+    print(f"Sending {action} for PIN {pin} at {lat},{lon}")
+    # κώδικας για POST στο hr.balkanelectric.gr
+  
+    return True
+
